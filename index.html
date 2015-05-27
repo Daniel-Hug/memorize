@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Guestbook</title>
+	<meta name="description" content="web app boilerplate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- App Icons specified in case they're not in root dir (e.g. gh-pages) -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" sizes="196x196" href="app-icon-196.png">
+	<link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="bower_components/FatUI/FatUI.css">
+	<link rel="stylesheet" href="src/css/app.css">
+</head>
+<body>
+	<h1>Flash Cards</h1>
+
+	<form id="form-add-card">
+		<textarea name="text" class="full-width"></textarea>
+		<button class="field-row full-width">Add</button>
+	</form>
+
+
+	<ul id="cards"></ul>
+
+
+	<!-- JS -->
+
+		<!-- utilities -->
+
+			<!-- DDS -->
+			<script src="bower_components/object-subscribe/obj.js"></script>
+			<script src="bower_components/subscribable.js/subscribable.js"></script>
+			<script src="bower_components/DDS/DDS.js"></script>
+
+			<!-- DOM builder -->
+			<script src="bower_components/DOM-Builder/DOM-Builder.js"></script>
+
+
+		<!-- helper functions -->
+		<script src="src/js/helpers.js"></script>
+
+		<!-- app & model setup -->
+		<script src="src/js/init.js"></script>
+
+		<!-- views -->
+
+			<!-- cards -->
+			<script src="src/views/cards/card.js"></script>
+			<script src="src/views/cards/cards.js"></script>
+
+		<!-- Bible reference linker -->
+		<script src="http://api.reftagger.com/v2/RefTagger.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+body {
+	max-width: 720px;
+	margin: 32px auto;
+	padding: 0 16px;
+	font-family: sans-serif;
+}
+
+h1 {
+	font-weight: normal;
+}
+
+#form-add-card textarea {
+	min-height: 128px;
+}
+
+#cards {
+	padding: 0;
+	list-style: none;
+}
+
+#cards li {
+	margin: 16px 0;
+}
+
+#cards .delete {
+	/* position and box model */
+	float: right;
+	padding: 0;
+	height: 16px;
+	width: 16px;
+	border: 0;
+	margin-right: 8px;
+	margin-top: 1px;
+
+	/* style */
+	background: #444;
+	box-shadow: none;
+	text-shadow: none;
+	color: white;
+}
