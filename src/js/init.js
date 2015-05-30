@@ -1,17 +1,6 @@
-/* global DDS, h */
+/* global app, DDS, h, Obj */
 (function() {
 	'use strict';
-
-
-
-
-	/* app global
-	**************************************/
-
-	var app = window.app = {
-		renderers: {},
-		views: {}
-	};
 
 
 
@@ -19,11 +8,21 @@
 	**************************************/
 
 	// Grab flash cards from localStorage (recent last):
-	app.cards = new DDS(h.storage.get('cards') || []);
+	var cards = h.storage.get('cards') || [];
+
+	// calculate and set a priority for each card
+	cards.forEach(app.setPriority);
+
+	app.cards = new DDS(cards);
 
 	// keep db updated when model changes
 	app.cards.on('any', function() {
-		h.storage.set('cards', app.cards.objectsObj);
+		// exclude priority property from db records
+		h.storage.set('cards', app.cards.objects.map(function(card) {
+			var cardClone = Obj.extend(card);
+			delete cardClone.priority;
+			return cardClone;
+		}));
 	});
 
 
@@ -39,7 +38,7 @@
 
 	(function(d, t) {
 		var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-		g.src = '//api.reftagger.com/v2/RefTagger.js';
+		g.src = 'http://api.reftagger.com/v2/RefTagger.js';
 		s.parentNode.insertBefore(g, s);
 	}(document, 'script'));
 

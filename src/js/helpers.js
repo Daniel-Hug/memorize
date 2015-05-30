@@ -41,6 +41,56 @@
 		}
 	};
 
+	var MS_PER_DAY = 1000 * 60 * 60 * 24;
+
+	// takes two timestamps, returns number of days they're apart
+	function getDayDiff(a, b) {
+		var diff = startOfDay(b) - startOfDay(a);
+		return Math.round(diff / MS_PER_DAY);
+	}
+
+	// returns timestamp for beginning of the day of the passed timestamp, else beginning of today
+	function startOfDay(ts) {
+		var date = ts ? new Date(ts) : new Date();
+		return date.setHours(0,0,0,0);
+	}
+
+	function addDays(ts, numDays) {
+		var startOfOriginalDay = startOfDay(+ts);
+		return startOfDay(startOfOriginalDay + (numDays + 0.5) * MS_PER_DAY);
+	}
+
+	var vb = {};
+
+	//	Accepts a number, a singular noun, and an optional plural noun (plural is inferred using vb.plural if not given):
+	//		vb.count(3, 'apple')
+	//	Returns the number paired with the correct noun:
+	//		"3 apples"
+	vb.count = function(num, singular, plural) {
+		plural = plural || singular + 's';
+		var noun = num === 1 ? singular : plural;
+		return num + ' ' + noun;
+	};
+
+	// daysAgo(2)  => "2 days ago"
+	// daysAgo(2, 'overdue')  => "2 days overdue"
+	// daysAgo(1)  => "yesterday"
+	// daysAgo(0)  => "today"
+	// daysAgo(-1) => "tomorrow"
+	// daysAgo(-2) => "in 2 days"
+	function daysAgo(days, preposition) {
+		preposition = preposition || 'ago';
+		return days > 0 ?
+			(days > 1 ?
+				days + ' days ' + preposition :
+				'yesterday') :
+			(days < 0 ?
+				(days < -1 ?
+					'in ' + -days + ' days' :
+					'tomorrow') :
+				'today');
+	}
+
 
 
 	/* DOM helpers
@@ -96,6 +146,11 @@
 		off: off,
 		removeNode: removeNode,
 		renderMultiple: renderMultiple,
-		prependAInB: prependAInB
+		prependAInB: prependAInB,
+		getDayDiff: getDayDiff,
+		startOfDay: startOfDay,
+		addDays: addDays,
+		vb: vb,
+		daysAgo: daysAgo
 	};
 })();

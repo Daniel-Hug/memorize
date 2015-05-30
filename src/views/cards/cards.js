@@ -9,9 +9,19 @@
 	)  render cards list  (
 	\*====================*/
 
+
+	function compareDesc(prop, a, b) {
+		if (b[prop] < a[prop]) return -1;
+		if (b[prop] > a[prop] || b.i > a.i) return 1;
+		if (b.i < a.i) return -1;
+	}
+
 	app.views.walletList = app.cards.render(new DDS.DOMView({
 		renderer: app.renderers.card,
-		parent: h.qs('#cards')
+		parent: h.qs('#cards'),
+		sort: function sortCards(cards) {
+			return cards.sort(compareDesc.bind(null, 'priority'));
+		}
 	}));
 
 
