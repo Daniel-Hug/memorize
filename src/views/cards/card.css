@@ -1,0 +1,48 @@
+#cards li {
+	padding: 20px 24px;
+	/* background-color: #eaeaea; */
+	border-bottom: 1px solid #ddd;
+}
+
+#cards .delete {
+	/* position and box model */
+	/* float: right; */
+	padding: 0;
+	height: 16px;
+	width: 16px;
+	border: 0;
+	margin-right: 8px;
+	margin-top: 1px;
+
+	/* style */
+	background: #444;
+	box-shadow: none;
+	text-shadow: none;
+	color: white;
+}
+
+.controls {
+    float: left;
+    height: 100%;
+    /* border-right: 1px solid #ccc; */
+    width: 28px;
+    padding-right: 12px;
+}
+
+#cards input[type="checkbox"] {
+    font-size: 2em;
+    margin: 0;
+}
+
+#cards .tag {
+    background-color: #66cc55;
+    font-size: 12px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    vertical-align: top;
+    color: #666;
+}
+
+.card-header {
+    padding-bottom: 5px;
+}

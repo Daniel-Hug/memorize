@@ -3,6 +3,7 @@ body {
 	margin: 32px auto;
 	padding: 0 16px;
 	font-family: sans-serif;
+	background-color: white;
 }
 
 h1 {
@@ -11,20 +12,30 @@ h1 {
 
 #form-add-card textarea {
 	min-height: 128px;
+	padding: 12px;
+	border-radius: 8px;
+	border: none;
+	box-shadow: 0 1px 6px rgba(0,0,0,.4) inset;
+	background-color: #eee;
 }
 
 #cards {
 	padding: 0;
 	list-style: none;
+	background-color: #eee;
+	box-shadow: 0 1px 6px rgba(0,0,0,.4) inset;
+	border-radius: 8px;
 }
 
 #cards li {
-	margin: 16px 0;
+	padding: 20px 24px;
+	/* background-color: #eaeaea; */
+	border-bottom: 1px solid #ddd;
 }
 
 #cards .delete {
 	/* position and box model */
-	float: right;
+	/* float: right; */
 	padding: 0;
 	height: 16px;
 	width: 16px;

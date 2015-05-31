@@ -22,26 +22,29 @@
 
 		// render li
 		var li = DOM.buildNode({el: 'li', kids: [
-			{ _className: 'card-header', kids: [
-				// if studied at all
-				card.studyDates && card.studyDates.length ?
-					// show when it's due for review
-					'due ' + h.daysAgo(-card.priority) :
-
-					'not yet studied'
+			{ _className: 'controls', kids: [
+				{ el: 'input', type: 'checkbox', _checked: checked, _disabled: checked, on_change: function markCardStudied() {
+					this.disabled = true;
+					studyDates.push(Date.now());
+					app.cards.edit(card, {
+						studyDates: studyDates,
+						priority: app.getPriority(studyDates)
+					});
+					// fix: recalculate card priority
+				} },
+				{ el: 'button', kid: '×', _className: 'delete', _title: 'delete', on_click: function deleteCard() {
+					app.cards.remove(card);
+				} }
 			] },
-			{ el: 'input', type: 'checkbox', _checked: checked, _disabled: checked, on_change: function markCardStudied() {
-				this.disabled = true;
-				studyDates.push(Date.now());
-				app.cards.edit(card, {
-					studyDates: studyDates,
-					priority: app.getPriority(studyDates)
-				});
-				// fix: recalculate card priority
-			} },
-			{ el: 'button', kid: '×', _className: 'delete', _title: 'delete', on_click: function deleteCard() {
-				app.cards.remove(card);
-			} },
+			{ _className: 'card-header', kids: [
+				{ el: 'span', _className: 'tag due-msg', kids: [
+					// if studied at all
+					card.studyDates && card.studyDates.length ?
+						// show when it's due for review
+						'due ' + h.daysAgo(-card.priority) :
+						'not yet studied'
+				] }
+			] },
 			card.text
 		] });
 
