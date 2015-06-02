@@ -29,7 +29,7 @@
 	/*====================*\
 	)  Handle new entries  (
 	\*====================*/
- 
+
 	h.on(h.qs('#form-add-card'), 'submit', function(event) {
 		// Don't submit the form
 		event.preventDefault();
