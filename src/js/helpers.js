@@ -22,6 +22,12 @@
 	}
 
 
+	// Nicer modulo: http://stackoverflow.com/q/4467539/552067
+	function mod(m, n) {
+		return ((m % n) + n) % n;
+	}
+
+
 	// localStorage + JSON wrapper:
 	var storage = {
 		get: function(prop) {
@@ -43,7 +49,7 @@
 
 	var MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-	// takes two timestamps, returns number of days they're apart
+	// takes two timestamps, returns date difference
 	function getDayDiff(a, b) {
 		var diff = startOfDay(b) - startOfDay(a);
 		return Math.round(diff / MS_PER_DAY);
@@ -139,6 +145,7 @@
 	window.h = {
 		each: each,
 		map: map,
+		mod: mod,
 		storage: storage,
 		qs: qs,
 		qsa: qsa,

@@ -4,20 +4,13 @@
 
 	function renderCard(card) {
 		var studyDates = card.studyDates ? card.studyDates.slice(0) : [];
-		var checked;
-
 
 		// check checkbox if studied today
-
-		// if studied at all
-		if (studyDates.length >= 1) {
-			var numDaysSinceLastStudy = h.getDayDiff(studyDates[studyDates.length - 1], Date.now());
-
+		var checked =
+			// if studied at all
+			studyDates.length >= 1 &&
 			// if studied today
-			checked = numDaysSinceLastStudy === 0;
-		} else {
-			checked = false;
-		}
+			h.getDayDiff(studyDates[studyDates.length - 1], Date.now()) === 0;
 
 
 
@@ -43,7 +36,7 @@
 			// if studied at all
 			card.studyDates && card.studyDates.length ?
 				// show when it's due for review
-				'due ' + h.daysAgo(-card.priority) :
+				'due ' + h.daysAgo(card.priority) :
 				// else
 				'not yet studied';
 

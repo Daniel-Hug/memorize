@@ -23,26 +23,16 @@
 		returns num days overdue
 	*/
 	app.getPriority = function getPriority(studyDates) {
-		var integer;
+		// not studied yet
+		if (studyDates.length < 1) return 0;
 
-		// if studied yet
-		if (studyDates.length >= 1) {
-			// if studied twice
-			if (studyDates.length >= 2) {
-				var lastDate = studyDates[studyDates.length - 1];
-				var lastGap = h.getDayDiff.apply(null, studyDates.slice(-2));
-				var dueGap = lastGap * 2;
-				var dueDate = h.addDays(lastDate, dueGap);
-				integer = h.getDayDiff(dueDate, Date.now()); // now - due = days overdue
-				if (integer < 0) integer = 0;
-			} else {
-				integer = 1;
-			}
-		} else {
-			integer = 0;
-		}
-
-		return integer;
+		var lastDate = studyDates[studyDates.length - 1];
+		var dueGap =
+			studyDates.length >= 2 ?
+				h.getDayDiff.apply(null, studyDates.slice(-2)) * 2 :
+				1;
+		var dueDate = h.addDays(lastDate, dueGap);
+		return h.getDayDiff(dueDate, Date.now()); // now - due = days overdue
 	};
 
 	app.setPriority = function setPriority(card) {
