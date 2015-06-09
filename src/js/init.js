@@ -32,7 +32,8 @@
 
 	window.refTagger = {
 		settings: {
-			//bibleVersion: 'ESV'
+			//bibleVersion: 'ESV',
+			noSearchTagNames: ['h1','h2']
 		}
 	};
 

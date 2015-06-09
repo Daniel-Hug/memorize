@@ -1,0 +1,8 @@
+{
+  "name": "bigcheck",
+  "homepage": "https://github.com/Daniel-Hug/bigcheck",
+  "authors": [
+    "Daniel Hug"
+  ],
+  "main": "bigcheck.css"
+}

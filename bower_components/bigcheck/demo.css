@@ -1,0 +1,38 @@
+/* Useless styles, just for demo design */
+
+body {
+	font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
+	color: #777;
+}
+
+h1, h2 {
+	margin-bottom: 5px;
+	font-weight: normal;
+	text-align: center;
+}
+
+h2 {
+	margin: 5px 0 2em;
+	color: #aaa;
+}
+
+.form {
+	width: 80px;
+	margin: 0 auto;
+}
+
+.txtcenter {
+	margin-top: 4em;
+	font-size: .9em;
+	text-align: center;
+	color: #aaa;
+}
+
+.copy {
+	margin-top: 2em; 
+}
+
+.copy a {
+	text-decoration: none;
+	color: #4778d9;
+}

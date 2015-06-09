@@ -1,0 +1,19 @@
+{
+  "name": "bigcheck",
+  "homepage": "https://github.com/Daniel-Hug/bigcheck",
+  "authors": [
+    "Daniel Hug"
+  ],
+  "main": "bigcheck.css",
+  "version": "0.1.0",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "0daa2fcefe8080de6dfc584c8abed2834d28d766"
+  },
+  "_source": "git://github.com/Daniel-Hug/bigcheck.git",
+  "_target": "~0.1.0",
+  "_originalSource": "bigcheck",
+  "_direct": true
+}
