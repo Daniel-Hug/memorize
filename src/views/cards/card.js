@@ -44,20 +44,16 @@
 
 		// render li
 		var li = DOM.buildNode({el: 'li', kids: [
-			{ _className: 'controls', kids: [
-				{
-					el: 'input', type: 'checkbox',
-					_className: 'bigcheck hide-label', _id: 'studied-' + card._id,
-					_checked: checked, _disabled: checked,
-					on_change: ctrl.markCardStudied
-				},
-				{ el: 'label', for: 'studied-' + card._id, kid: 'studied today' },
-				{ el: 'button', kid: '×', _className: 'delete', _title: 'delete', on_click: ctrl.deleteCard }
-			] },
+			{
+				el: 'input', type: 'checkbox',
+				_className: 'bigcheck hide-label', _id: 'studied-' + card._id,
+				_checked: checked, _disabled: checked,
+				on_change: ctrl.markCardStudied
+			},
+			{ el: 'label', for: 'studied-' + card._id, kid: 'studied today' },
 			{ el: 'h3', _className: 'card-title', kid: card.text },
-			{ _className: 'card-header', kids: [
-				{ el: 'span', _className: 'tag due-msg', kid: dueMsg }
-			] }
+			{ el: 'button', kid: '×', _className: 'delete', _title: 'delete', on_click: ctrl.deleteCard },
+			{ el: 'span', _className: 'tag due-msg', kid: dueMsg }
 		] });
 
 		return li;
