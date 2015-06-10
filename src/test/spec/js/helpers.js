@@ -1,3 +1,4 @@
+/* global describe, it, expect, h */
 (function() {
 	'use strict';
 
@@ -29,7 +30,7 @@
 
 	describe('startOfDay', function() {
 		function isInteger(value) {
-			return typeof value === "number" &&
+			return typeof value === 'number' &&
 				isFinite(value) &&
 				Math.floor(value) === value;
 		}
